@@ -347,3 +347,7 @@ lazy val proguardedCli = Seq(
 lazy val sharedTestResources = {
   unmanagedResourceDirectories.in(Test) += baseDirectory.in(LocalRootProject).value / "tests" / "shared" / "src" / "test" / "resources"
 }
+
+lazy val proxyTest = (project in file("./proxy-test"))
+  .settings(shared)
+  .dependsOn(coreJvm,cache)
